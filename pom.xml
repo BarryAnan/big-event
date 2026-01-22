@@ -41,9 +41,10 @@
       <artifactId>mysql-connector-j</artifactId>
     </dependency>
 
+    <!-- validation验证 -->
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
   </dependencies>
 </project>

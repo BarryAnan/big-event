@@ -1,35 +1,37 @@
 package org.example.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 // 统一响应结果
-@NoArgsConstructor
+
 public class Result<T> {
     private Integer code; // 业务状态码 0-成功 1-失败
     private String message; // 提示信息
     private T data; // 响应数据
 
-    // 全参构造函数
-    public Result(Integer code, String message, T data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-    }
-
     // 快速返回操作成功响应结果(带响应数据)
     public static <T> Result<T> success(T data) {
-        return new Result<>(0, "操作成功", data);
+        Result<T> result = new Result<>();
+        result.setCode(0);
+        result.setMessage("操作成功");
+        result.setData(data);
+        return result;
     }
 
     // 快速返回操作成功响应结果
     public static <T> Result<T> success() {
-        return new Result<>(0, "操作成功", null);
+        Result<T> result = new Result<>();
+        result.setCode(0);
+        result.setMessage("操作成功");
+        result.setData(null);
+        return result;
     }
 
     // 快速返回操作失败响应结果
     public static <T> Result<T> error(String message) {
-        return new Result<>(1, message, null);
+        Result<T> result = new Result<>();
+        result.setCode(1);
+        result.setMessage(message);
+        result.setData(null);
+        return result;
     }
 
     // Getter 和 Setter 方法
